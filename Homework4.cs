@@ -38,7 +38,7 @@ class Program
         }
     }
 
-    static void PrintTriangle( int N, string shape)
+    static void PrintTriangle( int N, string shape)//Q2 Method
     {
         Console.WriteLine($"N is: {N}; shape is {shape}");
 
