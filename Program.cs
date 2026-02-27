@@ -1,0 +1,120 @@
+﻿using System.Collections.Concurrent;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.ComponentModel.Design.Serialization;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlTypes;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Dynamic;
+using System.Globalization;
+using System.Linq.Expressions;
+using System.Net.Http.Headers;
+using System.Net.NetworkInformation;
+using System.Reflection.Emit;
+using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
+using System.Runtime.ExceptionServices;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.Marshalling;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using System.Security.Cryptography;
+using System.Text;
+using System.Transactions;
+using Microsoft.VisualBasic;
+using Microsoft.Win32.SafeHandles;
+
+namespace Homework5;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Calling Q1 Method
+        Console.WriteLine("Input an integer:");
+        int num1 = Convert.ToInt16(Console.ReadLine());
+
+        Console.WriteLine("Input an integer:");
+        int num2 = Convert.ToInt16(Console.ReadLine());
+
+        Console.WriteLine($"a= {num1}; b= {num2}");
+        int result = LargestOf2(num1, num2);
+        Console.WriteLine($"The largest number is: {result}");
+
+        //Calling Q2 Method
+        GetMax();
+
+        //Calling Q3 Method
+        createAccount();
+    }
+    
+    static int LargestOf2(int num1, int num2) //Q1 Method
+    {
+        return (num1 > num2) ? num1 : num2;
+    }
+
+    static void GetMax()//Q2 Method
+    {
+        Console.WriteLine("Enter a:");
+        int a = Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Enter b:");
+        int b = Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Enter c:");
+        int c = Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Enter d:");
+        int d = Convert.ToInt16(Console.ReadLine());
+
+        int max1 = LargestOf2(a, b);
+        int max2 = LargestOf2(c, d);
+        int finalMax = LargestOf2(max1, max2);
+
+        Console.WriteLine($"The largest number is: {finalMax}");
+    }
+    static bool checkAge(int birth_year)//Q3 Methods
+    {
+        int current_year = 2026;
+        int age = current_year - birth_year;
+
+        if (age >= 18)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    static void createAccount()
+    {
+        Console.WriteLine("Enter username: ");
+        string username = Console.ReadLine();
+
+        Console.WriteLine("Enter password: ");
+        string password = Console.ReadLine();
+
+        Console.WriteLine("Enter password again: ");
+        string passwordConfirm = Console.ReadLine();
+
+        Console.WriteLine("Enter birth year: ");
+        int birth_year = Convert.ToInt16(Console.ReadLine());
+
+        if (checkAge(birth_year))
+        {
+            if (password == passwordConfirm)
+            {
+                Console.WriteLine("Account is created successfully");
+            }
+            else
+            {
+                Console.WriteLine("Wrong password");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Could not create an account");
+        }
+    }
+}
